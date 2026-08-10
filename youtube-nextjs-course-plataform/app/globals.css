@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
 
 :root {
    --color-text: #ffffff;
@@ -15,7 +12,10 @@
 
 html,
 body {
-    @apply bg-[var(--color-background)] text-[var(--color-text)] w-screen h-screen;
+    @apply bg-[var(--color-background)] text-[var(--color-text)] w-screen h-screen underline-offset-6;
 }
 
 
+a {
+    @apply hover:underline active:opacity-50 transition-opacity
+}
