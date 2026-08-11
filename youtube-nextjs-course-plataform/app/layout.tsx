@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   title: "CodarSe - Os melhores cursos de programação gratuitos",
   description: "Os melhores cursos de programaçao gratuitos com a melhor experiencia de aprendizado e foco",
 };
-interface IRootLayout extends Readonly<{
+type IRootLayout = Readonly<{
   children: React.ReactNode;
-}> { }
+}>
   
 
 export default function RootLayout({ children }: IRootLayout) {
