@@ -25,22 +25,22 @@ export const Header = () => {
     }, [currentPath]);
 
     return (
-        <nav className="flex items-center gap-4 justify-start md:justify-center bg-[var(--color-primary)] py-2 sm:py-4 px-6">
+        <nav className="flex items-center gap-4 justify-start md:justify-center bg-[var(--color-primary)] py-2 sm:py-4 px-6 ">
             
             <button className="sm:hidden" onClick={() => setDrawer(true)}>
                 <MdMenu className="size-8"/>
             </button>
-            <ul className="flex gap-4 list-none items-center" tabIndex={drawer ? -1 : undefined}>
+            <ul className="flex gap-4 list-none items-center " tabIndex={drawer ? -1 : undefined}>
                 <li className='my-2'>
-                    <Link href="/" className='border-2 rounded-md p-2 font-bold'>CODARSE</Link>
+                    <Link href="/" className='border-2 rounded-md p-2 font-bold hover:underline'>CODARSE</Link>
                 </li>
-                <li className="hidden sm:block">
+                <li className="hidden sm:block hover:underline">
                     <Link href="/" data-active={currentPath === '/'} className='data-[active=true]:underline'>Página inicial</Link>
                 </li>
-                <li  className="hidden sm:block">
+                <li  className="hidden sm:block hover:underline">
                     <Link href="/cursos" data-active={currentPath === '/cursos'} className='data-[active=true]:underline'>Cursos</Link>
                 </li>
-                <li  className="hidden sm:block">
+                <li  className="hidden sm:block hover:underline">
                     <Link href="https://blog.codarse.com" target="_blank" className='flex gap-1 items-center'>
                     Blog
                     <MdOpenInNew />

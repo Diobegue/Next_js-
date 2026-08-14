@@ -16,6 +16,3 @@ body {
 }
 
 
-a {
-    @apply hover:underline active:opacity-50 transition-opacity
-}
