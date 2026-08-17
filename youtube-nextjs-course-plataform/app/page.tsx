@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import { Card } from "./components/card/Card";
+
+import { Section } from "./components/section/Section";
 
 export const metadata: Metadata = {
   title: "CodarSe - Página inicial",
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 export default function PageHome() {
   return (
    <main className="">
-    <Card 
+
+    <Section />
+    {/* <Card 
       href="/cursos/idd"
       image="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
       title="Curso de API Rest, Node e TypeScript"
@@ -20,7 +23,7 @@ export default function PageHome() {
                     No processo de desenvolvimento, as vezes precisamos criar componentes e outros recursos que nos farão performar muito melhor no futuro. A criação de bons componentes de interface é o segredo para um desenvolvimento rápido de uma aplicação frontend.
                     Nessa vamos criar junto o componente de card da nossa aplicação, esse componente será usado em toda a nossa plataforma de cursos, e tem as melhores práticas de desenvolvimento aplicadas.
         `}
-    />
+    /> */}
    </main>
   )
 }

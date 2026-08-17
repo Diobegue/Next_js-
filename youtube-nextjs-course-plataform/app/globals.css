@@ -12,6 +12,7 @@
 
 html,
 body {
+    overflow: overlay;
     @apply bg-[var(--color-background)] text-[var(--color-text)] w-screen h-screen underline-offset-6;
 }
 
