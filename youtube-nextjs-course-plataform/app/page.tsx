@@ -11,7 +11,9 @@ export default function PageHome() {
   return (
    <main className="">
 
-    <Section />
+    <Section 
+     title="Veja mais cursos"
+     variant="h-list"/>
     {/* <Card 
       href="/cursos/idd"
       image="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"

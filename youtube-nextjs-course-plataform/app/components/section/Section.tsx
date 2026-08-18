@@ -1,14 +1,24 @@
 import { Card } from '../card/Card';
 
-export const Section = () => {
+
+//props que o componente recebe
+interface ISectionProps {
+    title: string;
+    variant?: "grid" | "h-list";
+}
+
+//componente da sessão
+export const Section = ({title, variant = "grid"}: ISectionProps) => {
     return (
         <section className="flex flex-col gap-4 px-4">
             <h2 className="font-bold text-xl">
-                Todos os Cursos
+                {title}
             </h2>
 
-            <ul className="flex flex-col gap-2 ">
-                <li>
+            <ul 
+            data-variant={variant}
+            className="grid gap-2 grid-cols-1 sm:grid-cols-none data-[variant=grid]:sm:grid-cols-2  data-[variant=grid]:md:grid-cols-3 data-[variant=h-list]:sm:grid-flow-col data-[variant=h-list]:sm:overflow-x-autoauto">
+                <li data-variant={variant} className='w-full data-[variant=h-list]:sm:w-72'>
                     <Card
                         href="/cursos/idd"
                         image="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
@@ -21,7 +31,7 @@ export const Section = () => {
                     Nessa vamos criar junto o componente de card da nossa aplicação, esse componente será usado em toda a nossa plataforma de cursos, e tem as melhores práticas de desenvolvimento aplicadas.
         `} />
                 </li>
-                <li>
+                <li data-variant={variant} className='w-full data-[variant=h-list]:sm:w-72'>
                                 <Card
                         href="/cursos/idd"
                         image="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
@@ -34,7 +44,7 @@ export const Section = () => {
                     Nessa vamos criar junto o componente de card da nossa aplicação, esse componente será usado em toda a nossa plataforma de cursos, e tem as melhores práticas de desenvolvimento aplicadas.
         `} />
                 </li>
-                <li>
+                <li data-variant={variant} className='w-full data-[variant=h-list]:sm:w-72'>
                                 <Card
                         href="/cursos/idd"
                         image="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
