@@ -5,7 +5,7 @@ import { Card, IcardProps } from '../card/Card';
 //props que o componente recebe
 interface ISectionProps {
     title: string;
-    variant?: "grid" | "h-list";
+    variant: "grid" | "h-list";
     items: IcardProps[];
 }
 
@@ -19,7 +19,7 @@ export const Section = ({title, items, variant = "grid"}: ISectionProps) => {
 
             <ul 
             data-variant={variant}
-            className="grid gap-2 grid-cols-1 sm:grid-cols-none data-[variant=grid]:sm:grid-cols-2  data-[variant=grid]:md:grid-cols-3 data-[variant=h-list]:sm:grid-flow-col data-[variant=h-list]:sm:overflow-x-autoauto">
+            className="grid gap-2 grid-cols-1 sm:grid-cols-none data-[variant=grid]:sm:grid-cols-2  data-[variant=grid]:md:grid-cols-3 data-[variant=h-list]:sm:grid-flow-col data-[variant=h-list]:sm:overflow-x-auto">
 
                 {items.map(item => (
                     <li key={item.title} data-variant={variant} className='w-full data-[variant=h-list]:sm:w-72'>

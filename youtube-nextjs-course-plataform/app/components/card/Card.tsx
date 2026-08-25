@@ -13,7 +13,7 @@ export const Card = ({title, description, image, href}: IcardProps) => {
 
     return (
         <Link href={href} className='hover:no-underline'>
-            <article className='flex gap-2 flex-col p-2 rounded sm:hover:bg-[var(--color-primary)] '>
+            <article className='flex gap-2 flex-col p-2 rounded sm:hover:bg-(--color-primary) '>
                 <Image
                     width={1000} height={0}
                     src={image}
