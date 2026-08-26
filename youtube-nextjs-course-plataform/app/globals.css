@@ -1,22 +1,46 @@
+
+
 @import "tailwindcss";
 
 :root {
-   --color-text: #ffffff;
-   --color-error: #980000;
-   --color-paper: #232323;
-   --color-primary: #009888;
-   --color-background: #000000;
-   --color-primary-contrast: #ffffff;
+  --color-text: #ffffff;
+  --color-error: #980000;
+  --color-paper: #232323;
+  --color-primary: #009888;
+  --color-background: #000000;
+  --color-primary-contrast: #ffffff;
 }
 
 * {
-    @apply outline-[var(--color-primary)] -outline-offset-2 ;
+  @apply outline-[var(--color-primary)] -outline-offset-2;
 }
 
 html,
 body {
-    overflow: overlay;
-    @apply bg-[var(--color-background)] text-[var(--color-text)] w-screen h-screen underline-offset-6;
+  overflow: overlay;
+  @apply bg-[var(--color-background)] text-[var(--color-text)] w-screen h-screen underline-offset-6;
 }
 
+.overflow-primary::-webkit-scrollbar-thumb {
+  @apply bg-[var(--color-primary)];
+}
 
+*::-webkit-scrollbar {
+  @apply w-2 h-3;
+}
+
+*::-webkit-scrollbar-button {
+  @apply hidden;
+}
+
+*::-webkit-scrollbar-corner {
+  @apply bg-transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-[var(--color-paper)];
+}
+
+*::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
