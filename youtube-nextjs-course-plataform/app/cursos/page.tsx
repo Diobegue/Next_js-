@@ -17,7 +17,7 @@ export default function PageCursos() {
           items={[
             {
             href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
+            title: '1Curso de API Rest, Node e TypeScript',
             image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
             description: `
         572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
@@ -29,7 +29,7 @@ export default function PageCursos() {
           },
            {
             href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
+            title: '2 Curso de API Rest, Node e TypeScript',
             image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
             description: `
         572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
@@ -41,7 +41,7 @@ export default function PageCursos() {
           },
            {
             href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
+            title: '3 Curso de API Rest, Node e TypeScript',
             image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
             description: `
         572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
@@ -53,7 +53,7 @@ export default function PageCursos() {
           },
            {
             href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
+            title: '4 Curso de API Rest, Node e TypeScript',
             image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
             description: `
         572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
