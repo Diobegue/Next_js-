@@ -1,4 +1,11 @@
 import type { Metadata } from "next";
+import {Nunito} from "next/font/google";
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-nunito",
+});
 
 import "./globals.css";
 import { Header } from "./components/header/Header";
@@ -16,7 +23,7 @@ type IRootLayout = Readonly<{
 export default function RootLayout({ children }: IRootLayout) {
   return (
     <html lang="pt-BR">
-      <body className="font-sans">
+      <body className={nunito.className}>
         <Header />
         {children}
         </body>
