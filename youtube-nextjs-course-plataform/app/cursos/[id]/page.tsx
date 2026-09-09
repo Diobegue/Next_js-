@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CourseHeader } from "@/app/components/course-header/CourseHeader";
+import { StartCourse } from "@/app/components/StartCourse";
 
 interface Props {
   params: Promise<{
@@ -12,8 +13,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
 
   return {
-    title: (await params).id,
-    description: (await params).id,
+    title: id,
+    description: id,
   };
 }
 
@@ -22,7 +23,12 @@ export default async function PageCourseDetails({ params }: Props) {
 
   return (
     <main className="mt-8 flex justify-center">
-        <div className="min-[880px]:max-w-[880px] w-full">
+        <div className="min-[880px]:max-w-[880px] w-full px-2 flex flex-col gap-6">
+            <StartCourse
+              idClass="1"
+              idCourse='1'
+              imageUrl="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
+            />
             <CourseHeader />
         </div>
     </main>
