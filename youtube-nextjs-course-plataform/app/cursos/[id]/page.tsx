@@ -25,10 +25,16 @@ export default async function PageCourseDetails({ params }: Props) {
     <main className="mt-8 flex justify-center">
         <div className="min-[880px]:max-w-[880px] w-full px-2 flex flex-col gap-6">
             <StartCourse
+              title="🏆 Curso de API Rest, Node e Typescript"
               idClass="1"
               idCourse='1'
               imageUrl="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
             />
+            <CourseHeader />
+
+            <CourseHeader />
+            <CourseHeader />
+            <CourseHeader />
             <CourseHeader />
         </div>
     </main>
