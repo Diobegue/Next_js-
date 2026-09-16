@@ -17,7 +17,7 @@ export const StartCourse = ({ idClass, idCourse, imageUrl,title }: IStartCourseP
 
     return (
       <>
-        <div ref={ref} className="p-3  rounded-md bg-[var(--color-paper)] flex flex-col gap-4">
+        <div ref={ref} className="p-3  rounded-md bg-[var(--color-paper)] flex flex-col gap-4 md:sticky md:top-[104px]">
           <Link
             href={`/player/${idCourse}/${idClass}`}
             style={{ backgroundImage: `url(${imageUrl})` }}
@@ -30,7 +30,7 @@ export const StartCourse = ({ idClass, idCourse, imageUrl,title }: IStartCourseP
 
           <Link
             href={`/player/${idCourse}/${idClass}`}
-            className="bg-[var(--color-primary)] px-3 p-2 rounded-md text-center"
+            className="bg-[var(--color-primary)] px-3 p-2 rounded-md text-center w-full"
           >
             Começar curso
           </Link>
@@ -38,7 +38,7 @@ export const StartCourse = ({ idClass, idCourse, imageUrl,title }: IStartCourseP
 
        
           {!inView && (
-            <div className="p-3 px-2 bg-[var(--color-paper)]  flex flex-col gap-4 absolute left-0 top-14">
+            <div className="p-3 px-2 bg-[var(--color-paper)]  flex flex-col gap-4 absolute left-0 top-14 w-full">
               <h1 className="font-extrabold text-xl">
                 {title}
               </h1>
@@ -46,7 +46,7 @@ export const StartCourse = ({ idClass, idCourse, imageUrl,title }: IStartCourseP
               
           <Link
             href={`/player/${idCourse}/${idClass}`}
-            className="bg-[var(--color-primary)] px-3 p-2 rounded-md text-center"
+            className="bg-[var(--color-primary)] px-3 p-2 rounded-md text-center "
           >
             Começar curso
           </Link>
