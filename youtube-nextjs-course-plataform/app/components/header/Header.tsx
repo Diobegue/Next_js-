@@ -18,11 +18,11 @@ export const Header = () => {
         "/contato": "Contato",
     };
 
-    const title = titles[currentPath] ?? "CoderSe";
+    const title = titles[currentPath] ?? "CodarSe";
 
-    useEffect(() => {
+    const closeDrawer = () => {
         setDrawer(false);
-    }, [currentPath]);
+    };
 
     useEffect(() => {
         const handle = (e: KeyboardEvent) => {
@@ -69,13 +69,13 @@ export const Header = () => {
                     <ul className="flex gap-4 list-none h-full flex-col p-4 w-60 bg-black" onClick={event => event.stopPropagation()}>
 
                         <li >
-                            <Link href="/" data-active={currentPath === '/'} className='data-[active=true]:underline'>Página inicial</Link>
+                            <Link href="/" onClick={closeDrawer} data-active={currentPath === '/'} className='data-[active=true]:underline'>Página inicial</Link>
                         </li>
                         <li >
-                            <Link href="/cursos" data-active={currentPath === '/cursos'} className='data-[active=true]:underline'>Cursos</Link>
+                            <Link href="/cursos" onClick={closeDrawer} data-active={currentPath === '/cursos'} className='data-[active=true]:underline'>Cursos</Link>
                         </li>
                         <li >
-                            <Link href="https://blog.codarse.com" target="_blank" className='flex gap-1 items-center'>
+                            <Link href="https://blog.codarse.com" target="_blank" onClick={closeDrawer} className='flex gap-1 items-center'>
                                 Blog
                                 <MdOpenInNew />
                             </Link>

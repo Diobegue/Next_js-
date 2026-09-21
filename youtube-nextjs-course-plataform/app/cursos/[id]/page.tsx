@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CourseHeader } from "@/app/components/course-header/CourseHeader";
 import { StartCourse } from "@/app/components/StartCourse";
+import { Class } from "@/app/components/course-content/components/Class";
 
 interface Props {
   params: Promise<{
@@ -23,28 +24,24 @@ export default async function PageCourseDetails({ params }: Props) {
 
   return (
     <main className="mt-8 flex justify-center">
-        <div className="w-full min-[880px]:max-w-[880px] px-2 lg:px-0 flex flex-col gap-6 md:flex-row-reverse">
-          <div className="flex-[1]">
-            <StartCourse
-              title="🏆 Curso de API Rest, Node e Typescript"
-              idClass="1"
-              idCourse='1'
-              imageUrl="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
-            />
-          </div> 
-
-          <div className="flex-[2]">
-            <CourseHeader />
-            <CourseHeader />
-            <CourseHeader />
-            <CourseHeader />
-            <CourseHeader />
-            <CourseHeader />
-            <CourseHeader />
-            <CourseHeader />
-          </div>
-
+      <div className="w-full min-[880px]:max-w-[880px] px-2 lg:px-0 flex flex-col gap-6 md:flex-row-reverse">
+        <div className="flex-[1]">
+          <StartCourse
+            title={`🏆 Curso de ${id}`}
+            idClass="1"
+            idCourse={id}
+            imageUrl="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
+          />
         </div>
+
+        <div className="flex-[2]">
+          <CourseHeader />
+          <Class
+            title="NextJS, TailwindCSS e TypeScript: #00 -apresentação do curso"
+            playerUrl="/player/{courseId}/{classId}"
+          />
+        </div>
+      </div>
     </main>
   );
 }
