@@ -5,7 +5,7 @@ import { Class } from "./Class";
 import { useState } from "react";
 
 
-interface IClassGroupProps {
+export interface IClassGroupProps {
 
     title: string;
     courseId: string;
@@ -24,7 +24,7 @@ export const ClassGroup = ({ title, courseId, classes }: IClassGroupProps) => {
 
         
        <>
-       <button className="flex items-center gap-6 p-4 w-full text-left bg-[var(--color-paper)]"
+       <button className="flex items-center gap-6 p-4 w-full text-left bg-[var(--color-paper)] cursor-pointer"
         onClick={() => setOpen(!open)}       
        >
         {open

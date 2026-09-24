@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { CourseHeader } from "@/app/components/course-header/CourseHeader";
 import { StartCourse } from "@/app/components/StartCourse";
+import { CourseContent } from "@/app/components/course-content/CourseContent";
 
-import { ClassGroup } from "@/app/components/course-content/components/ClassGroup";
+
 
 interface Props {
   params: Promise<{
@@ -35,15 +36,28 @@ export default async function PageCourseDetails({ params }: Props) {
           />
         </div>
 
-        <div className="flex-[2] flex flex-col gap-4">
+        <div className="flex-[2] flex flex-col gap-12">
           <CourseHeader />
-          <ClassGroup
-            title="Introdução e apresentação do projeto"
-            courseId={id}
-            classes={[
-              { id: "1", title: "Aula 1 - Introdução" },
-              { id: "2", title: "Aula 2 - Apresentação do projeto" },
-              { id: "3", title: "Aula 3 - Configuração do ambiente" },
+          <CourseContent
+            classGroups={[
+              {
+                title: "Introdução e apresentação do projeto",
+                courseId: "id",
+                classes: [
+                  { id: "1", title: "Aula 1 - Introdução" },
+                  { id: "2", title: "Aula 2 - Apresentação do projeto" },
+                  { id: "3", title: "Aula 3 - Configuração do ambiente" },
+                ],
+              },
+              {
+                title: "inciar curso de nextJS",
+                courseId: "id",
+                classes: [
+                  { id: "1", title: "Aula 1 - Introdução" },
+                  { id: "2", title: "Aula 2 - Apresentação do projeto" },
+                  { id: "3", title: "Aula 3 - Configuração do ambiente" },
+                ],
+              },
             ]}
           />
         </div>
