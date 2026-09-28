@@ -1,26 +1,35 @@
+'use client'
+
 import { MdShare } from "react-icons/md";
 import { CollapsibleText } from "./components/CollapsibleText";
 import { CopyContext } from "./components/CopyContext";
 
 
-export const CourseHeader = () => {
+
+interface IcourseHeaderProps {
+    title: string;
+    description:string
+    numberOfClasses: number;
+}
+
+export const CourseHeader = ( {title, description, numberOfClasses}: IcourseHeaderProps) => {
 
     return (
         <div className="flex flex-col gap-2">
-            <h1 className="font-extrabold text-xl">🏆 Curso de API Rest, Node e Typescript</h1>
+            <h1 className="font-extrabold text-xl">{title}</h1>
             <CollapsibleText numberOfLinesWhenClosed={3}>
-                Curso de NodeJS e Typescript iniciante. Esse curso é focado nas principais conceitos de um backend para crud. Vamos trabalhar com paginação, filtro, banco de dados sql, query builders, typescript e muito mais. É a porta de entrada para o mundo do Node JS no backend.#CODARSE
+                {description}
             </CollapsibleText>
 
             <div className="flex gap-2 items-center">
-                <CopyContext title="copie link abaixo" content="https://codarse.com.br/PL29TaWXah3iZqMoLjUU8EoKXQXjuc50F1">  
+                <CopyContext title="copie link abaixo" content={window.location.href}>  
                     <button className="py-2 px-4 bg-[var(--color-paper)] rounded-full flex gap-2 items-center text-sm">
                         <MdShare />
                         Compartilhar
                     </button>
                 </CopyContext>
 
-               <span>48 aulas</span> 
+               <span>{numberOfClasses} aulas</span> 
             </div>
         </div>
     )

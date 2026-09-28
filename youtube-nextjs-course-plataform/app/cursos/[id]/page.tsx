@@ -31,13 +31,17 @@ export default async function PageCourseDetails({ params }: Props) {
           <StartCourse
             title={`🏆 Curso de ${id}`}
             idClass="1"
-            idCourse={id}
+            idCourse='1'
             imageUrl="https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg"
           />
         </div>
 
-        <div className="flex-[2] flex flex-col gap-12">
-          <CourseHeader />
+        <div className="flex-[2] flex flex-col gap-12 pb-12">
+          <CourseHeader 
+          numberOfClasses={47}
+          title="🏆 Curso de API Rest, Node e Typescript"
+          description="Curso de NodeJS e Typescript iniciante. Esse curso é focado nas principais conceitos de um backend para crud. Vamos trabalhar com paginação, filtro, banco de dados sql, query builders, typescript e muito mais. É a porta de entrada para o mundo do Node JS no backend.#CODARSE"
+          />
           <CourseContent
             classGroups={[
               {
