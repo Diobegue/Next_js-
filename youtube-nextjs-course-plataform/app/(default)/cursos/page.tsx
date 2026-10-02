@@ -1,26 +1,23 @@
 import { Metadata } from "next";
+import { Section } from "../../components/section/Section";
 
-import { Section } from "./components/section/Section";
-import { KeepWatching} from "./components/KeepWatching";
-
+//title supuerior da tela...
 export const metadata: Metadata = {
-  title: "CodarSe - Página inicial",
-  
+  title: "CodarSe - Todos os cursos",
+
 };
 
-export default function PageHome() {
+export default function PageCursos() {
   return (
     <main className="mt-8 flex justify-center">
-      <div className="w-full min-[880px]:max-w-[880px] flex flex-col gap-4">
-
-        <KeepWatching />
+      <div className="min-[880px]:max-w-[880px] w-full">
         <Section
-          title="Veja mais cursos"
-          variant="h-list"
+          title="Todos os Cursos"
+          variant="grid"
           items={[
             {
             href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
+            title: '1Curso de API Rest, Node e TypeScript',
             image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
             description: `
         572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
@@ -32,7 +29,7 @@ export default function PageHome() {
           },
            {
             href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
+            title: '2 Curso de API Rest, Node e TypeScript',
             image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
             description: `
         572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
@@ -44,7 +41,7 @@ export default function PageHome() {
           },
            {
             href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
+            title: '3 Curso de API Rest, Node e TypeScript',
             image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
             description: `
         572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
@@ -56,7 +53,7 @@ export default function PageHome() {
           },
            {
             href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
+            title: '4 Curso de API Rest, Node e TypeScript',
             image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
             description: `
         572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
@@ -67,10 +64,8 @@ export default function PageHome() {
         `,
           }
         ]}
-          
-          />
+        />
       </div>
-
     </main>
   )
 }

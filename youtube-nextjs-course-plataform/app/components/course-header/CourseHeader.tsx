@@ -3,6 +3,8 @@
 import { MdShare } from "react-icons/md";
 import { CollapsibleText } from "./components/CollapsibleText";
 import { CopyContext } from "./components/CopyContext";
+import { useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
 
 
 
@@ -13,6 +15,13 @@ interface IcourseHeaderProps {
 }
 
 export const CourseHeader = ( {title, description, numberOfClasses}: IcourseHeaderProps) => {
+    const pathname = usePathname();
+    const origin = useSyncExternalStore(
+        () => () => {},
+        () => window.location.origin,
+        () => "",
+    );
+    const pageUrl = origin && pathname ? new URL(pathname, origin).href : "";
 
     return (
         <div className="flex flex-col gap-2">
@@ -22,7 +31,7 @@ export const CourseHeader = ( {title, description, numberOfClasses}: IcourseHead
             </CollapsibleText>
 
             <div className="flex gap-2 items-center">
-                <CopyContext title="copie link abaixo" content={window.location.href}>  
+                <CopyContext title="copie link abaixo" content={pageUrl}>
                     <button className="py-2 px-4 bg-[var(--color-paper)] rounded-full flex gap-2 items-center text-sm">
                         <MdShare />
                         Compartilhar

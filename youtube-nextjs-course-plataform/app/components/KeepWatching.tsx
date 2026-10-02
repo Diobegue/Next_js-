@@ -6,7 +6,7 @@ import { MdPlayCircle } from 'react-icons/md'
 export const KeepWatching = () => {
     return (
         <Link
-        href={`/player/{courseId}/{classId}`}
+        href="/player/1/2"
         className='p-4 mx-4 flex gap-2 bg-[var(--color-primary)] rounded-2xl '
         >
 

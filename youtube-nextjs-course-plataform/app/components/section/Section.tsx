@@ -51,13 +51,15 @@ export const Section = ({title, items, variant = "grid"}: ISectionProps) => {
         >
           {variant === "h-list" && 
           (
-            <button
-              disabled={scrollAt === "start"}
-              onClick={() => handleScroll(-300)}
-              className="cursor-pointer h-14 w-14 bg-[var(--color-primary)] rounded-full hidden sm:flex items-center justify-center sticky left-0 my-auto -ml-14 transition-opacity disabled:opacity-0 active:opacity-50"
-            >
-              <MdKeyboardArrowLeft size={32} />
-            </button>
+            <li className="list-none">
+              <button
+                disabled={scrollAt === "start"}
+                onClick={() => handleScroll(-300)}
+                className="cursor-pointer h-14 w-14 bg-[var(--color-primary)] rounded-full hidden sm:flex items-center justify-center sticky left-0 my-auto -ml-14 transition-opacity disabled:opacity-0 active:opacity-50"
+              >
+                <MdKeyboardArrowLeft size={32} />
+              </button>
+            </li>
           )}
 
           {items.map((item) => (
@@ -77,13 +79,15 @@ export const Section = ({title, items, variant = "grid"}: ISectionProps) => {
 
           {variant === "h-list" &&
            (
-            <button
-              disabled={scrollAt === "end"}
-              onClick={() => handleScroll(300)}
-              className="cursor-pointer h-14 w-14 bg-[var(--color-primary)] rounded-full hidden sm:flex items-center justify-center sticky right-0 my-auto -ml-14 transition-opacity disabled:opacity-0 active:opacity-50 active:opacity-50"
-            >
-              <MdKeyboardArrowRight size={32} />
-            </button>
+            <li className="list-none">
+              <button
+                disabled={scrollAt === "end"}
+                onClick={() => handleScroll(300)}
+                className="cursor-pointer h-14 w-14 bg-[var(--color-primary)] rounded-full hidden sm:flex items-center justify-center sticky right-0 my-auto -ml-14 transition-opacity disabled:opacity-0 active:opacity-50"
+              >
+                <MdKeyboardArrowRight size={32} />
+              </button>
+            </li>
           )}
         </ul>
       </section>
