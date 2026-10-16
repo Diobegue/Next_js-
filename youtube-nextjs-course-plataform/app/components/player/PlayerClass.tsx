@@ -1,6 +1,6 @@
 import { MdCheckCircle, MdPlayCircleOutline,MdCheckCircleOutline} from "react-icons/md";
 
-interface IPlayerClassProps {
+export interface IPlayerClassProps {
   title: string;
   playing: boolean;
   done: boolean;

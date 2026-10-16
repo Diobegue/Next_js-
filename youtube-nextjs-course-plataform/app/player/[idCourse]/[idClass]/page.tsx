@@ -1,6 +1,7 @@
-"use client";
-import { PlayerHeader, PlayerClass } from "@/app/components/player";
-import { PlayerGroupClass } from "@/app/components/player/PlayerGroupClass";
+
+
+import { PlayerHeader } from "@/app/components/player";
+import { PlayerClassGroup } from "@/app/components/player/PlayerClassGroup";
 
 interface Props {
   params: Promise<{
@@ -43,18 +44,36 @@ export default async function PlayerPage({ params }: Props) {
   const title = `${course.title}: ${lesson.title}`;
 
   return (
-    <>
+    <main className="flex flex-col gap-20">
       <PlayerHeader title={title} subtitle={lesson.subtitle} />
 
-      <PlayerClass
-        onPlay={() => console.log("play")}
-        onCheck={() => console.log("check")}
-        done={false}
-        playing={true}
-        title={title}
-      />
+      
 
-      <PlayerGroupClass />
-    </>
+      <PlayerClassGroup 
+        
+        
+        title="Introdução e apresentação do curso"
+        position={1}
+        classes={[
+          { title: "Cursos de API Rest, Node e TypeScript-#00 Curso de NodeJS e TypeScript iniciante",
+            playing: false, 
+            done: true,
+          },
+           { title: "Cursos de API Rest, Node e TypeScript-#01 Curso de NodeJS e TypeScript iniciante",
+            playing: true, 
+            done: false,
+          },
+           { title: "Cursos de API Rest, Node e TypeScript-#02 Curso de NodeJS e TypeScript iniciante",
+            playing: false, 
+            done: false,
+          },
+           { title: "Cursos de API Rest, Node e TypeScript-#03 Curso de NodeJS e TypeScript iniciante",
+            playing: false, 
+            done: false,
+          },
+          
+        ]}
+      />
+    </main>
   );
 }
