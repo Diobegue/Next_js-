@@ -1,79 +1,86 @@
+import { PlayerHeader, PlayerPlaylist } from '../../../components/player/';
 
-
-import { PlayerHeader } from "@/app/components/player";
-import { PlayerClassGroup } from "@/app/components/player/PlayerClassGroup";
 
 interface Props {
-  params: Promise<{
-    idCourse: string;
-    idClass: string;
-  }>;
+  params: {
+    classId: string;
+    courseId: string;
+  }
 }
+export default function PagePlayer({ params: { classId, courseId } }: Props) {
 
-const courseCatalog: Record<string, {
-  title: string;
-  subtitle: string;
-  lessons: Record<string, { title: string; subtitle: string }>;
-}> = {
-  "1": {
-    title: "Cursos de API Rest, Node e TypeScript",
-    subtitle: "Curso de NodeJS e TypeScript iniciante",
-    lessons: {
-      "1": {
-        title: "#00 - apresentação do curso",
-        subtitle: "Apresentação do curso de API Rest, Node e TypeScript",
-      },
-      "2": {
-        title: "#01 - configurando o ambiente",
-        subtitle: "Preparando o ambiente para desenvolver a API",
-      },
-      "3": {
-        title: "#02 - criando a primeira rota",
-        subtitle: "Estrutura inicial do backend e primeiras rotas",
-      },
-    },
-  },
-};
-
-export default async function PlayerPage({ params }: Props) {
-  const { idCourse, idClass } = await params;
-
-  const course = courseCatalog[idCourse] ?? courseCatalog["1"];
-  const lesson = course.lessons[idClass] ?? course.lessons["1"];
-
-  const title = `${course.title}: ${lesson.title}`;
 
   return (
-    <main className="flex flex-col gap-20">
-      <PlayerHeader title={title} subtitle={lesson.subtitle} />
-
-      
-
-      <PlayerClassGroup 
-        
-        
-        title="Introdução e apresentação do curso"
-        position={1}
-        classes={[
-          { title: "Cursos de API Rest, Node e TypeScript-#00 Curso de NodeJS e TypeScript iniciante",
-            playing: false, 
-            done: true,
-          },
-           { title: "Cursos de API Rest, Node e TypeScript-#01 Curso de NodeJS e TypeScript iniciante",
-            playing: true, 
-            done: false,
-          },
-           { title: "Cursos de API Rest, Node e TypeScript-#02 Curso de NodeJS e TypeScript iniciante",
-            playing: false, 
-            done: false,
-          },
-           { title: "Cursos de API Rest, Node e TypeScript-#03 Curso de NodeJS e TypeScript iniciante",
-            playing: false, 
-            done: false,
-          },
-          
-        ]}
+    <main className='flex flex-col gap-2'>
+      <PlayerHeader
+        title='API Rest, Node e Typescript: #00 - Apresentação do curso, tecnologias usadas e muito mais'
+        subtitle='🏆 Curso de API Rest, Node e Typescript'
       />
+
+      <div className='flex gap-2'>
+        <div className='max-w-96'>
+          <PlayerPlaylist
+            playingClassId={classId}
+            playingCourseId={courseId}
+            classGroups={[
+              {
+                title: 'Introdução e apresentação do projeto',
+                classes: [
+                  {
+                    done: true,
+                    classId: 'aula-00',
+                    title: 'API Rest, Node e Typescript: #00 - Apresentação do curso, tecnologias usadas e muito mais'
+                  },
+                  {
+                    done: false,
+                    classId: 'aula-01',
+                    title: 'API Rest, Node e Typescript: #01 - Apresentação do curso, tecnologias usadas e muito mais'
+                  },
+                  {
+                    done: false,
+                    classId: 'aula-02',
+                    title: 'API Rest, Node e Typescript: #02 - Apresentação do curso, tecnologias usadas e muito mais'
+                  },
+                  {
+                    done: false,
+                    classId: 'aula-03',
+                    title: 'API Rest, Node e Typescript: #03 - Apresentação do curso, tecnologias usadas e muito mais'
+                  },
+                ]
+              },
+              {
+                title: 'Introdução e apresentação do projeto',
+                classes: [
+                  {
+                    done: true,
+                    classId: 'aula-04',
+                    title: 'API Rest, Node e Typescript: #04 - Apresentação do curso, tecnologias usadas e muito mais'
+                  },
+                  {
+                    done: false,
+                    classId: 'aula-05',
+                    title: 'API Rest, Node e Typescript: #05 - Apresentação do curso, tecnologias usadas e muito mais'
+                  },
+                  {
+                    done: false,
+                    classId: 'aula-06',
+                    title: 'API Rest, Node e Typescript: #06 - Apresentação do curso, tecnologias usadas e muito mais'
+                  },
+                  {
+                    done: false,
+                    classId: 'aula-07',
+                    title: 'API Rest, Node e Typescript: #07 - Apresentação do curso, tecnologias usadas e muito mais'
+                  },
+                ]
+              }
+            ]}
+          />
+        </div>
+
+        <div className='flex-1'>
+          Player
+        </div>
+      </div>
     </main>
   );
 }
