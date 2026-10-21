@@ -10,7 +10,7 @@ interface Props {
 export default async function PagePlayer({ params }: Props) {
   const { idCourse, idClass } = await params;
   return (
-    <main className='flex h-dvh flex-col gap-2  '>
+    <main className='flex h-[calc(100dvh-4rem)] flex-col gap-2 overflow-hidden sm:h-[calc(100dvh-4.5rem)]'>
       <PlayerHeader
         title='API Rest, Node e Typescript: #00 - Apresentação do curso, tecnologias usadas e muito mais'
         subtitle='🏆 Curso de API Rest, Node e Typescript'
@@ -178,7 +178,7 @@ export default async function PagePlayer({ params }: Props) {
           />
         </div>
 
-        <div className='min-h-0 flex-1'>
+        <div className='min-h-0 flex-1 overflow-hidden'>
           Player
         </div>
       </div>

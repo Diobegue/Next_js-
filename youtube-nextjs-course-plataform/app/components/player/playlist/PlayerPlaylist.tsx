@@ -45,7 +45,7 @@ const handleMarkDone = (classId: string) => {
         </h3>
       </div>
 
-      <ol className=" flex-1 overflow-auto overflow-primary">
+      <ol className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden overflow-primary">
         {groups.map((classGroup, index) => (
           <li key={`${classGroup.title}-${index}`}>
             <PlayerClassGroup
