@@ -36,14 +36,14 @@ export const PlayerClassGroup = ({ title, position, classes, open, playingClassI
         }
       </button>
 
-      <ol data-open={open} className='felx flex-col data-[open=false]:hidden'>
-        {classes.map((classItem) => (
+      <ol data-open={open} className='flex flex-col data-[open=false]:hidden'>
+        {classes.map((classItem, index) => (
           <li key={classItem.title}>
             
           <PlayerClass
             {...classItem}
             playing={classItem.classId === playingClassId}
-
+            position={index + 1}
             onPlay={() => onPlay(classItem.classId)}
             onCheck={() => onCheck(classItem.classId)}
             

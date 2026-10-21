@@ -10,10 +10,10 @@ export interface IPlayerClassProps {
   onCheck: () => void;
 }
 
-export const PlayerClass = ({ title, position, playing, done , onPlay, onCheck }: IPlayerClassProps) => {
+export const PlayerClass = ({ title, playing, done , onPlay, onCheck }: IPlayerClassProps) => {
   return (
     <button className="flex gap-4 p-4 items-center" onClick= {onPlay}>
-     <span className="min-w-6 text-center">{position}</span>
+     
      {!done && (
       <div className="group" onClick={e => {
         e.stopPropagation();
