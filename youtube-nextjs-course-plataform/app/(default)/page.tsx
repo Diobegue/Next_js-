@@ -1,76 +1,28 @@
-import { Metadata } from "next";
-
-import { Section } from "../components/section/Section";
-import { KeepWatching} from "@/app/components/KeepWatching";
+import type { Metadata } from "next";
+import { Section } from "@/app/components/section/Section";
+import { KeepWatching } from "@/app/components/KeepWatching";
+import { courses } from "@/app/data/courses";
 
 export const metadata: Metadata = {
   title: "CodarSe - Página inicial",
-  
 };
 
 export default function PageHome() {
   return (
     <main className="mt-8 flex justify-center">
       <div className="w-full min-[880px]:max-w-[880px] flex flex-col gap-4">
-
         <KeepWatching />
         <Section
           title="Veja mais cursos"
           variant="h-list"
-          items={[
-            {
-            href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
-            image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
-            description: `
-        572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
-                    Precisa de ajuda? Solicite uma ajuda particular: https://forms.gle/Pu1aT2LsbU1nuTTDA
-
-                    No processo de desenvolvimento, as vezes precisamos criar componentes e outros recursos que nos farão performar muito melhor no futuro. A criação de bons componentes de interface é o segredo para um desenvolvimento rápido de uma aplicação frontend.
-                    Nessa vamos criar junto o componente de card da nossa aplicação, esse componente será usado em toda a nossa plataforma de cursos, e tem as melhores práticas de desenvolvimento aplicadas.
-        `,
-          },
-           {
-            href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
-            image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
-            description: `
-        572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
-                    Precisa de ajuda? Solicite uma ajuda particular: https://forms.gle/Pu1aT2LsbU1nuTTDA
-
-                    No processo de desenvolvimento, as vezes precisamos criar componentes e outros recursos que nos farão performar muito melhor no futuro. A criação de bons componentes de interface é o segredo para um desenvolvimento rápido de uma aplicação frontend.
-                    Nessa vamos criar junto o componente de card da nossa aplicação, esse componente será usado em toda a nossa plataforma de cursos, e tem as melhores práticas de desenvolvimento aplicadas.
-        `,
-          },
-           {
-            href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
-            image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
-            description: `
-        572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
-                    Precisa de ajuda? Solicite uma ajuda particular: https://forms.gle/Pu1aT2LsbU1nuTTDA
-
-                    No processo de desenvolvimento, as vezes precisamos criar componentes e outros recursos que nos farão performar muito melhor no futuro. A criação de bons componentes de interface é o segredo para um desenvolvimento rápido de uma aplicação frontend.
-                    Nessa vamos criar junto o componente de card da nossa aplicação, esse componente será usado em toda a nossa plataforma de cursos, e tem as melhores práticas de desenvolvimento aplicadas.
-        `,
-          },
-           {
-            href: '/cursos/idd',
-            title: 'Curso de API Rest, Node e TypeScript',
-            image: 'https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg',
-            description: `
-        572 visualizações  11 de jul. de 2024  ✪ Prioridade para membros em 6 de junho de 2024  RIO GRANDE DO SUL
-                    Precisa de ajuda? Solicite uma ajuda particular: https://forms.gle/Pu1aT2LsbU1nuTTDA
-
-                    No processo de desenvolvimento, as vezes precisamos criar componentes e outros recursos que nos farão performar muito melhor no futuro. A criação de bons componentes de interface é o segredo para um desenvolvimento rápido de uma aplicação frontend.
-                    Nessa vamos criar junto o componente de card da nossa aplicação, esse componente será usado em toda a nossa plataforma de cursos, e tem as melhores práticas de desenvolvimento aplicadas.
-        `,
-          }
-        ]}
-          
-          />
+          items={courses.map((course) => ({
+            href: `/cursos/${course.slug}`,
+            title: course.title,
+            image: course.image,
+            description: course.description,
+          }))}
+        />
       </div>
-
     </main>
-  )
+  );
 }

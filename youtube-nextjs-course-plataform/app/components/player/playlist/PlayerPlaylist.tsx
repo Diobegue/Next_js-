@@ -1,5 +1,5 @@
 'use client';
-import { useState} from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { IPlayerClassGroupProps, PlayerClassGroup } from '../../player/playlist/Components/PlayerClassGroup';
@@ -11,6 +11,7 @@ interface IPlayerPlaylistProps {
   classGroups: Pick<IPlayerClassGroupProps, 'classes' | 'title'>[];
 }
 export const PlayerPlaylist = ({ classGroups, playingClassId, playingCourseId }: IPlayerPlaylistProps) => {
+  const progressKey = `course-progress:${playingCourseId}`;
   const [openedIndex, setOpenedIndex] = useState<number | undefined>(() => {
   const index = classGroups.findIndex((group) =>
     group.classes.some((classItem) => classItem.classId === playingClassId)
@@ -20,19 +21,38 @@ export const PlayerPlaylist = ({ classGroups, playingClassId, playingCourseId }:
 });
   
 
-const [groups, setGroups] = useState(classGroups);
+const savedProgress = useSyncExternalStore(
+  (onStoreChange) => {
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === progressKey) onStoreChange();
+    };
+    window.addEventListener('storage', handleStorage);
+    window.addEventListener('course-progress-changed', onStoreChange);
+    return () => {
+      window.removeEventListener('storage', handleStorage);
+      window.removeEventListener('course-progress-changed', onStoreChange);
+    };
+  },
+  () => window.localStorage.getItem(progressKey),
+  () => null,
+);
+const completedClassIds: string[] = (() => {
+  try {
+    const parsedProgress: unknown = savedProgress ? JSON.parse(savedProgress) : [];
+    return Array.isArray(parsedProgress)
+      ? parsedProgress.filter((classId): classId is string => typeof classId === 'string')
+      : [];
+  } catch {
+    return [];
+  }
+})();
 
 const handleMarkDone = (classId: string) => {
-  setGroups((currentGroups) =>
-    currentGroups.map((group) => ({
-      ...group,
-      classes: group.classes.map((classItem) =>
-        classItem.classId === classId
-          ? { ...classItem, done: true }
-          : classItem
-      ),
-    }))
-  );
+  const updatedIds = completedClassIds.includes(classId)
+    ? completedClassIds
+    : [...completedClassIds, classId];
+  window.localStorage.setItem(progressKey, JSON.stringify(updatedIds));
+  window.dispatchEvent(new Event('course-progress-changed'));
 };
   const router = useRouter();
 
@@ -46,10 +66,14 @@ const handleMarkDone = (classId: string) => {
       </div>
 
       <ol className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden overflow-primary">
-        {groups.map((classGroup, index) => (
+        {classGroups.map((classGroup, index) => (
           <li key={`${classGroup.title}-${index}`}>
             <PlayerClassGroup
               {...classGroup}
+              classes={classGroup.classes.map((classItem) => ({
+                ...classItem,
+                done: classItem.done || completedClassIds.includes(classItem.classId),
+              }))}
 
               playingClassId={playingClassId}
 
