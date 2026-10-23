@@ -46,13 +46,9 @@ export default async function PagePlayer({ params }: Props) {
         </div>
 
         <div className="min-h-0 flex-1 overflow-hidden">
-          {currentClass.videoId ? (
+          <div className="aspect-video w-full">
             <PlayerVideoPlayer videoId={currentClass.videoId} />
-          ) : (
-            <div className="flex h-full items-center justify-center rounded-lg bg-[var(--color-paper)] p-6 text-center">
-              O vídeo desta aula ainda não foi cadastrado.
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </main>
